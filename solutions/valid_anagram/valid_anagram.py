@@ -1,4 +1,14 @@
-def isAnagram(s: str, t: str) -> bool:
+"""
+Valid Anagram Problem
+---------------------
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+Approach 1: HashMap (Optimal) -> O(n) time, O(1) space
+Approach 2: Sorting (Simple) -> O(n log n) time, O(n) space
+"""
+
+# Approach 1: HashMap (Optimal)
+def isAnagram_hashmap(s: str, t: str) -> bool:
     if len(s) != len(t):
         return False
 
@@ -16,6 +26,16 @@ def isAnagram(s: str, t: str) -> bool:
     return len(sdict) == 0
 
 
-# Test
-print(isAnagram("anagram", "nagaram"))  # Expected True
-print(isAnagram("rat", "car"))          # Expected False
+# Approach 2: Sorting (Simple)
+def isAnagram_sorting(s: str, t: str) -> bool:
+    return sorted(s) == sorted(t)
+
+
+# Tests
+print("HashMap approach:")
+print(isAnagram_hashmap("anagram", "nagaram"))  # Expected True
+print(isAnagram_hashmap("rat", "car"))          # Expected False
+
+print("\nSorting approach:")
+print(isAnagram_sorting("anagram", "nagaram"))  # Expected True
+print(isAnagram_sorting("rat", "car"))          # Expected False
